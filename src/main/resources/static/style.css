@@ -1,7 +1,5 @@
 .header{
-    background: black;
-    height: 80px;
-    margin-bottom: 10px;
+    margin-left: 75%;
 }
 
 
@@ -9,7 +7,7 @@
     float: left;
         height: 350px;
         margin-bottom: 10px;
-        margin-left: 4%;
+        margin-left: 17%;
         width: 40%;
 }
 
@@ -18,54 +16,57 @@
     min-height: 80px;
     margin-bottom: 10px;
     margin-left: 1%;
-    width: 50%;
+    width: 25%;
     float: left;
 
 }
 
 .video{
-    background: red;
+    background: black;
+
     height: 350px;
     margin-bottom: 10px;
-    margin-left: 4%;
-    width: 90%;
+
+    width: 100%;
 
 
 }
 
 .unknown{
-    background: red;
+    background: lightyellow;
+
     height: 100px;
     margin-bottom: 10px;
-    margin-left: 4%;
-    width: 90%;
+
+    width: 100%;
 
 }
 
 .late{
-    background: red;
+    background: beige;
     height: 100px;
     margin-bottom: 10px;
-    margin-left: 4%;
-    width: 90%;
+
+    width: 100%;
 
 }
 
 .excess{
-    background: red;
+    background: antiquewhite;
+
     height: 100px;
     margin-bottom: 10px;
-    margin-left: 4%;
-    width: 90%;
+
+    width: 100%;
 
 }
 
 .disease{
-    background: red;
+    background: navajowhite;
     height: 100px;
     margin-bottom: 10px;
-    margin-left: 4%;
-    width: 90%;
+
+    width: 100%;
 
 
 }
@@ -92,3 +93,39 @@
 /* close commented backslash hack */
 
 
+
+.menu1{
+
+    float: left;
+    width: 20%;
+
+}
+
+.menu2{
+
+
+    float: left;
+    width: 19%;
+}
+
+
+.menu3{
+
+
+    float: left;
+    width: 40%;
+}
+
+
+.menu4{
+
+    margin-top: 22px;
+    float: left;
+
+}
+
+.menu5{
+
+    margin-top: 25px;
+    margin-left: 40%;
+}

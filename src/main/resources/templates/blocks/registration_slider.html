@@ -1,0 +1,282 @@
+<div th:fragment="registration_slider">
+
+
+    <div class="registration">
+
+        <div class="slider">
+
+            <div class="navigation">
+
+
+                <label for="user" class="bar"></label>
+                <label for="partofday" class="bar"></label>
+                <label for="group" class="bar"></label>
+                <label for="classroom" class="bar"></label>
+                <label for="class" class="bar"></label>
+
+            </div>
+
+            <div class="slides">
+
+                <input type="radio" name="r" id="user" checked>
+                <input type="radio" name="r" id="partofday">
+                <input type="radio" name="r" id="group">
+                <input type="radio" name="r" id="classroom">
+                <input type="radio" name="r" id="class">
+
+                <div class="slideqwe s1">
+                    <h1>Add user</h1>
+                    <form  action="/addUser" method="post" enctype="multipart/form-data" th:object="${users}">
+
+                        <input type="text" name="userName" placeholder="Name:" class="form-control"><br>
+                        <input type="text" name="surname" placeholder="Surname:" class="form-control"><br>
+
+
+
+
+                        <!-- Выбрать статус -->
+                        <div >
+
+                            <label th:for="status">Status: </label>
+                            <select th:field="*{status}">
+
+                                <option th:each="statusValue:${statusValues}"
+                                        th:text="${statusValue.status}"
+                                        th:value="${statusValue}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+                        <!-- Выбрать группу -->
+                        <div th:object="${groupes}">
+
+                            <label th:for="groupes">Group: </label>
+                            <select th:field="*{name}">
+
+                                <option th:each="group:${groupesForSelect}"
+                                        th:text="${group.name}"
+                                        th:value="${group.name}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+                        <!-- отметить заболевание -->
+                        <div >
+
+                            <label >Disease: </label>
+                            <select name = "addDisease">
+
+                                <option value="false">false</option>
+                                <option value="true">true</option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+
+                        <!-- эта часть в ответе за загрузку фото + enctype="multipart/form-data" указали в форме-->
+                        <input type="file" name="imageFile">
+                        <input type="submit" value="Add user"/><br>
+
+
+                    </form>
+                </div>
+
+
+
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+
+                <div class="slideqwe">
+
+                    <h1>Add part of day</h1>
+                    <form  action="/addPartOfDay" method="post" th:object="${partOfDay}">
+
+
+
+
+
+                        <!-- Выбрать группу -->
+                        <div th:object="${groupes}">
+
+                            <label th:for="groupes">Group: </label>
+                            <select th:field="*{name}">
+
+                                <option th:each="group:${groupesForSelect}"
+                                        th:text="${group.name}"
+                                        th:value="${group.name}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+
+
+
+                        <!-- Выбрать день -->
+                        <div >
+
+                            <label th:for="day">Day: </label>
+                            <select th:field="*{day}">
+
+                                <option th:each="dayValue:${dayValues}"
+                                        th:text="${dayValue.day}"
+                                        th:value="${dayValue}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+                        <!-- Выбрать четность -->
+                        <div >
+
+                            <label th:for="parity">Parity: </label>
+                            <select th:field="*{parity}">
+
+                                <option th:each="parityValue:${parityValues}"
+                                        th:text="${parityValue.parity}"
+                                        th:value="${parityValue}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- Выбрать учителя -->
+                        <div>
+
+                            <label th:for="teachers">Teacher: </label>
+                            <select th:field="*{userID}">
+
+                                <option th:each="teacher:${teachers}"
+                                        th:text="${teacher.name+' '+teacher.surname}"
+                                        th:value="${teacher.userID}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+
+
+
+                        <!-- Выбрать предмет -->
+                        <div >
+
+                            <label th:for="classes">Class: </label>
+                            <select th:field="*{classID}">
+
+                                <option th:each="class:${classes}"
+                                        th:text="${class.name}"
+                                        th:value="${class.classID}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+
+
+
+
+                        <!-- Выбрать кабинет -->
+                        <div >
+
+                            <label th:for="classes">Classroom: </label>
+                            <select th:field="*{classroomID}">
+
+                                <option th:each="classroom:${classrooms}"
+                                        th:text="${classroom.addres}"
+                                        th:value="${classroom.classroomID}"></option>
+
+                            </select>
+
+                        </div><br>
+
+
+
+
+                        <input type="text" name="numberoflesson" placeholder="Number of lesson:" class="form-control"><br>
+
+                        <input type="text" name="firstweekofperiod" placeholder="First week of period:" class="form-control">
+                        <input type="text" name="lastweekofperiod" placeholder="Last week of period:" class="form-control"><br>
+                        <button type="submit"> Add part of day</button>
+
+
+                    </form>
+
+                </div>
+                <div class="slideqwe">
+
+                    <h1>Add group</h1>
+                    <form  action="/addGroup" method="post">
+
+                        <input type="text" name="addGroup" placeholder="Group:" class="form-control"><br>
+                        <button type="submit"> Add group</button>
+
+                    </form>
+
+                </div>
+
+                <div class="slideqwe">
+
+                    <h1>Add classroom</h1>
+                    <form  action="/addClassroom" method="post">
+
+                        <input type="text" name="addAddres" placeholder="classroom:" class="form-control"><br>
+                        <button type="submit"> Add classroom</button>
+
+                    </form>
+
+                </div>
+                <div class="slideqwe">
+
+                    <h1>Add class</h1>
+                    <form  action="/addClass" method="post">
+
+                        <input type="text" name="addClass" placeholder="class:" class="form-control"><br>
+                        <button type="submit"> Add class</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
